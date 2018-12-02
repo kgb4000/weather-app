@@ -1,0 +1,60 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  height: 100vh;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: aliceblue;
+  background-color: black;
+  height: 70px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  margin: 3rem 0;
+}
+
+.location {
+  text-align: center;
+}
+
+.city {
+  font-size: 4rem;
+  font-weight: 900;
+}
+
+i {
+  font-size: 8rem;
+}
+
+.temperature,
+.forcast_summary,
+.time {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
