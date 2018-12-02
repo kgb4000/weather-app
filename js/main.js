@@ -2,6 +2,9 @@
 
 let geo = navigator.geolocation;
 
+let myGoogleKey = config.GOOGLE_MAPS_KEY;
+let myDarkSkyKey = config.DARKSKY_KEY;
+
 function success(position) {
   lat = position.coords.latitude;
   lng = position.coords.longitude;
@@ -25,7 +28,7 @@ function error(err) {
 // Use Gooogle's maps api and fetch to find the city using the lat and lng found using HTML5 geolocation.
 function findCity() {
 
-  const Url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyASPxm44GI79PUC2DRaB3qVblKUAgNeFu8`;
+  const Url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${myGoogleKey}`;
 
   fetch(Url)
   .then(
@@ -67,9 +70,12 @@ function getWeather() {
   let temperature = document.querySelector('.temperature');
   let forcastSummary = document.querySelector('.forcast_summary');
 
-  const weatherUrl = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/2019d8ce82389edcc8f6f3b1e863e75a/${lat},${lng}`;
 
-  fetch(weatherUrl)
+  const weatherUrl = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${myDarkSkyKey}/${lat},${lng}`;
+
+  fetch(weatherUrl, {
+    credentials: 'same-origin' 
+  })
     .then(
       function(response) {
         if (response.status !== 200) {
